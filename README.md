@@ -27,7 +27,7 @@ Hooks.on("renderTokenConfig", (app,html) => {injectConfig.inject(app, html, data
 ```js
 injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);
 ```
-**Note: **This method will automatically create the hooks for the documentName and inject the data into the config dialog
+**Note:** This method will automatically create the hooks for the documentName and inject the data into the config dialog
 
 ### Data Structure:
 
