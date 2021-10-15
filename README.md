@@ -6,21 +6,27 @@ Since the inject method returns the jquery element, you could pass an undefined 
 HOW TO USE:
 
 Methods:
-- injectConfig.inject(app, html, data, object)
+- `injectConfig.inject(app, html, data, object)`
      - app: the app object
      - html: the html of the config dialog
      - data: the data that contains the information to be injected (see data structure below)
      - object: the object that is being configured (this is not required, by default app.object is used)
 Example:
-```Hooks.on("renderTokenConfig", (app,html) => {injectConfig.inject(app, html, data, app.object)};```
 
-- injectConfig.quickInject(targets, data)
+```js
+Hooks.on("renderTokenConfig", (app,html) => {injectConfig.inject(app, html, data, app.object)};
+```
+
+- `injectConfig.quickInject(targets, data)`
      - targets: the targets that are being configured, this can be a single object or an array of objects
          the structure of the objcet is as follows {documentName, inject} where documentName is the name of the document (eg "Token")
          and inject is the target of the injection (this is optional), see data structure below for details on the inject key
      - data: the data that contains the information to be injected (see data structure below)
 Example:
-```injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);```
+
+```js
+injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);
+```
 Note: This method will automatically create the hooks for the documentName and inject the data into the config dialog
 
 Data Structure:
