@@ -7,20 +7,20 @@ HOW TO USE:
 
 Methods:
 - injectConfig.inject(app, html, data, object)
-    - app: the app object
- - html: the html of the config dialog
- - data: the data that contains the information to be injected (see data structure below)
- - object: the object that is being configured (this is not required, by default app.object is used)
+     - app: the app object
+     - html: the html of the config dialog
+     - data: the data that contains the information to be injected (see data structure below)
+     - object: the object that is being configured (this is not required, by default app.object is used)
 Example:
-Hooks.on("renderTokenConfig", (app,html) => {injectConfig.inject(app, html, data, app.object)};
+```Hooks.on("renderTokenConfig", (app,html) => {injectConfig.inject(app, html, data, app.object)};```
 
 - injectConfig.quickInject(targets, data)
- - targets: the targets that are being configured, this can be a single object or an array of objects
-     the structure of the objcet is as follows {documentName, inject} where documentName is the name of the document (eg "Token")
-     and inject is the target of the injection (this is optional), see data structure below for details on the inject key
- - data: the data that contains the information to be injected (see data structure below)
+     - targets: the targets that are being configured, this can be a single object or an array of objects
+         the structure of the objcet is as follows {documentName, inject} where documentName is the name of the document (eg "Token")
+         and inject is the target of the injection (this is optional), see data structure below for details on the inject key
+     - data: the data that contains the information to be injected (see data structure below)
 Example:
-injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);
+```injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);```
 Note: This method will automatically create the hooks for the documentName and inject the data into the config dialog
 
 Data Structure:
@@ -31,9 +31,9 @@ Reserved Keys:
 - moduleId: the id of the module (this is a required field)
 - inject: the target of the injection (this is optional) - this can be a string selector, a DOM element, or a jquery object
 - tab: add this field if you want your injection to be a separate tab in the config dialog
- - name: the unique identifier of the tab
- - label: the user facing text of the tab
- - icon: the icon of the tab (eg. "fas fa-cog")
+     - name: the unique identifier of the tab
+     - label: the user facing text of the tab
+     - icon: the icon of the tab (eg. "fas fa-cog")
 
 Flag Keys:
 Note: every key except the reserved ones listed below will be the key of the flag you are injecting, below is described the data structure of the flag object
@@ -47,6 +47,7 @@ Note: every key except the reserved ones listed below will be the key of the fla
 
 Practical Example:
 
+```
 injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],{
       moduleId : "myModule",
       tab: {
@@ -88,3 +89,4 @@ injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],{
       }
 
   });
+  ```
