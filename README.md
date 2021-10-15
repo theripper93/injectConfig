@@ -1,5 +1,5 @@
 ## injectConfig library by @theripper93
-### License: MIT https://opensource.org/licenses/MIT
+### License: MIT
 
 This library is used to inject your module flags into the config of placeable objects.
 Since the inject method returns the jquery element, you could pass an undefined app, and inject it into any html element. (eg. a dialog)
