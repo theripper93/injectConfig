@@ -96,3 +96,7 @@ injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],{
 
   });
   ```
+  
+  ### How to include in your project:
+  
+  Simply copy paste the contents of `injectConfig.js` into your project or add the file directly
