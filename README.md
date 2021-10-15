@@ -47,7 +47,7 @@ Note: every key except the reserved ones listed below will be the key of the fla
 
 Practical Example:
 
-```
+```js
 injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],{
       moduleId : "myModule",
       tab: {
