@@ -7,7 +7,7 @@ HOW TO USE:
 
 Methods:
 - injectConfig.inject(app, html, data, object)
- -- app: the app object
+    - app: the app object
  - html: the html of the config dialog
  - data: the data that contains the information to be injected (see data structure below)
  - object: the object that is being configured (this is not required, by default app.object is used)
