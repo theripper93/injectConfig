@@ -1,3 +1,7 @@
+//injectConfig library by @theripper93
+//License: MIT
+//Documentation: https://github.com/theripper93/injectConfig
+
 var injectConfig = {
     inject: function injectConfig(app,html,data,object){
         object = object || app.object;
