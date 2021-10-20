@@ -19,23 +19,24 @@ var injectConfig = {
             const elemData = data[k];
             const flag = "flags." + moduleId + "." + (k || "");
             const flagValue = object?.getFlag(moduleId, k) ?? elemData.default ?? getDefaultFlag(k);
+            const notes = v.notes ? `<p class="notes">${v.notes}</p>` : "";
             switch(elemData.type){
                 case "text":
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
-                            <input type="text" name="${flag}" value="${flagValue}" placeholder="${v.placeholder || ""}">
+                            <input type="text" name="${flag}" value="${flagValue}" placeholder="${v.placeholder || ""}">${notes}
                     </div>`;
                     break;
                 case "number":
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
-                            <input type="number" name="${flag}" value="${flagValue}" placeholder="${v.placeholder || ""}">
+                            <input type="number" name="${flag}" value="${flagValue}" placeholder="${v.placeholder || ""}">${notes}
                     </div>`;
                     break;
                 case "checkbox": 
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
-                            <input type="checkbox" name="${flag}" ${flagValue ? "checked" : ""}>
+                            <input type="checkbox" name="${flag}" ${flagValue ? "checked" : ""}>${notes}
                     </div>`;
                     break;
                 case "select":
@@ -45,7 +46,7 @@ var injectConfig = {
                     for(const [i,j] of Object.entries(v.options)){
                         injectHtml += `<option value="${i}" ${flagValue === i ? "selected" : ""}>${j}</option>`;
                     }
-                    injectHtml += `</select>
+                    injectHtml += `</select>${notes}
                     </div>`;
                     break;
                 case "range":
@@ -53,7 +54,7 @@ var injectConfig = {
                         <label for="${k}">${v.label || ""}</label>
                         <div class="form-fields">
                             <input type="range" name="${flag}" value="${flagValue}" min="${v.min}" max="${v.max}">
-                            <span class="range-value">${flagValue}</span>
+                            <span class="range-value">${flagValue}</span>${notes}
                         </div>
                     </div>`;
                     break;
@@ -62,15 +63,15 @@ var injectConfig = {
                         <label for="${k}">${v.label || ""}</label>
                         <div class="form-fields">
                             <input class="color" type="text" name="${flag}" value="${flagValue}">
-                            <input type="color" data-edit="${flag}" value="${flagValue}">
+                            <input type="color" data-edit="${flag}" value="${flagValue}">${notes}
                         </div>
                     </div>`;
                     break;
                 case "custom":
-                    injectHtml += v
+                    injectHtml += v.html;
                     break;
             }
-            if(elemData.type.includes("filepicker")){
+            if(elemData.type?.includes("filepicker")){
                 const fpType = elemData.type.split(".")[1] || "imagevideo";
                 injectHtml += `<div class="form-group">
                 <label for="${k}">${v.label || ""}</label>
@@ -79,7 +80,7 @@ var injectConfig = {
                         <i class="fas fa-file-import fa-fw"></i>
                     </button>
                     <input class="image" type="text" name="${flag}" placeholder="${v.placeholder || ""}" value="${flagValue}">
-                </div>
+                </div>${notes}
             </div>`;
             }
         }
