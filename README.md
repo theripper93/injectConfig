@@ -1,9 +1,10 @@
 ## injectConfig library by @theripper93
-### License: MIT https://opensource.org/licenses/MIT
+### License: MIT
 
 This library is used to inject your module flags into the config of placeable objects.
 Since the inject method returns the jquery element, you could pass an undefined app, and inject it into any html element. (eg. a dialog)
-HOW TO USE:
+
+## HOW TO USE:
 
 ### Methods:
 - `injectConfig.inject(app, html, data, object)`
@@ -31,7 +32,7 @@ injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);
 
 ### Data Structure:
 
-**Note: **every key except the reserved ones listed below will be the key of the flag you are injecting
+**Note:** Every key except the reserved ones listed below will be the key of the flag you are injecting
 
 #### Reserved Keys:
 - **moduleId**: the id of the module (this is a required field)
@@ -42,7 +43,7 @@ injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);
      - icon: the icon of the tab (eg. "fas fa-cog")
 
 #### Flag Keys:
-**Note**: every key except the reserved ones listed below will be the key of the flag you are injecting, below is described the data structure of the flag object
+**Note**: Every key except the reserved ones listed below will be the key of the flag you are injecting, below is described the data structure of the flag object
  - **type**: the type of the input, the valid types are: checkbox, text, select, color, number, range, filepicker (you can provide the filepicker type by separating it with a . eg. filepicker.imagevideo)
  - **label**: the user facing text of the flag
  - **default**: the default value of the flag (this is optional)
@@ -96,3 +97,7 @@ injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],{
 
   });
   ```
+  
+  ### How to include in your project:
+  
+  Simply copy paste the contents of `injectConfig.js` into your project or add the file directly
