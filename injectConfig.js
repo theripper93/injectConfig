@@ -30,7 +30,7 @@ var injectConfig = {
                 case "number":
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
-                            <input type="number" name="${flag}" value="${flagValue}" placeholder="${v.placeholder || ""}">${notes}
+                            <input type="number" name="${flag}" min="${v.min}" max="${v.max}" step="${v.step ?? 1}" value="${flagValue}" placeholder="${v.placeholder || ""}">${notes}
                     </div>`;
                     break;
                 case "checkbox": 
@@ -53,7 +53,7 @@ var injectConfig = {
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
                         <div class="form-fields">
-                            <input type="range" name="${flag}" value="${flagValue}" min="${v.min}" max="${v.max}">
+                            <input type="range" name="${flag}" value="${flagValue}" min="${v.min}" max="${v.max}" step="${v.step ?? 1}">
                             <span class="range-value">${flagValue}</span>${notes}
                         </div>
                     </div>`;
