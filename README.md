@@ -44,13 +44,15 @@ injectConfig.quickInject([{documentName: "Token"},{documentName: "Tile"}],data);
 
 #### Flag Keys:
 **Note**: Every key except the reserved ones listed below will be the key of the flag you are injecting, below is described the data structure of the flag object
- - **type**: the type of the input, the valid types are: checkbox, text, select, color, number, range, filepicker (you can provide the filepicker type by separating it with a . eg. filepicker.imagevideo)
+ - **type**: the type of the input, the valid types are: custom, checkbox, text, select, color, number, range, filepicker (you can provide the filepicker type by separating it with a . eg. filepicker.imagevideo)
  - **label**: the user facing text of the flag
  - **default**: the default value of the flag (this is optional)
  - **options**: the options of the input (probvide an array of key,value pairs) - this is only valid for select
  - **placeholder**: the placeholder of the flag (eg. "Enter a value")
  - **min**: the minimum value of the flag - this is only valid for range
  - **max**: the maximum value of the flag - this is only valid for range
+ - **notes**: The text to display as a note under the input
+ - **html**: If using custom, put the custom html in this field
 
 #### Practical Example:
 
