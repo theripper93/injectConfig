@@ -99,9 +99,12 @@ var injectConfig = {
         return injectHtml;
 
         function createTab(name,label,icon){
-            const tabs = html.find(".sheet-tabs").last();
+            
+            /*let tabs = html.find(".sheet-tabs").last();
+            if(!tabs.length) tabs = html.find(`nav[data-group="main"]`);*/
+            const tabs = html.find(".sheet-tabs").first().find(".item").last();
             const tab = `<a class="item" data-tab="${name}"><i class="${icon}"></i> ${label}</a>`
-            tabs.append(tab);
+            tabs.after(tab);
             const tabContainer = `<div class="tab" data-tab="${name}"></div>`
             return $(tabContainer);
         }
