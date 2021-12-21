@@ -5,6 +5,7 @@
 var injectConfig = {
     inject: function injectConfig(app,html,data,object){
         this._generateTabStruct(app,html,data,object);
+        const tabSize = data.tab?.width ?? 100;
         object = object || app.object;
         const moduleId = data.moduleId;
         let injectPoint
@@ -92,11 +93,11 @@ var injectConfig = {
         if(data.tab){
             const injectTab = createTab(data.tab.name, data.tab.label, data.tab.icon).append(injectHtml);
             injectPoint.after(injectTab);
-            app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + 100 : "auto"});
+            app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + tabSize : "auto"});
             return injectHtml;
         }
         injectPoint.after(injectHtml);
-        if(app)app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + 100 : "auto"});
+        if(app)app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + tabSize : "auto"});
         return injectHtml;
 
         function createTab(name,label,icon){
@@ -161,6 +162,7 @@ var injectConfig = {
         const isTabs = html.find(".sheet-tabs").length;
         const useTabs = data.tab
         if(isTabs || !useTabs) return;
+        const tabSize = data.tab?.width || 100;
         const layer = app?.object?.layer?.options?.name
         const icon = $(".main-controls").find(`li[data-canvas-layer="${layer}"]`).find("i").attr("class")
 
@@ -183,7 +185,7 @@ var injectConfig = {
             $(e.currentTarget).addClass("active");
             html.find(".tab").removeClass("active");
             html.find(`[data-tab="${e.currentTarget.dataset.tab}"]`).addClass("active");
-            app.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + 100 : "auto"});
+            app.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + tabSize : "auto"});
         });
     }
 }
