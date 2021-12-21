@@ -96,7 +96,7 @@ var injectConfig = {
             return injectHtml;
         }
         injectPoint.after(injectHtml);
-        app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + 100 : "auto"});
+        if(app)app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + 100 : "auto"});
         return injectHtml;
 
         function createTab(name,label,icon){
