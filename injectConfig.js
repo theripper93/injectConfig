@@ -22,6 +22,7 @@ var injectConfig = {
             const flag = "flags." + moduleId + "." + (k || "");
             const flagValue = object?.getFlag(moduleId, k) ?? elemData.default ?? getDefaultFlag(k);
             const notes = v.notes ? `<p class="notes">${v.notes}</p>` : "";
+            v.label = v.units ? v.label+`<span class="units">(${v.units})</span>` : v.label;
             switch(elemData.type){
                 case "text":
                     injectHtml += `<div class="form-group">
