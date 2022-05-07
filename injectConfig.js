@@ -2,7 +2,7 @@
 //License: MIT
 //Documentation: https://github.com/theripper93/injectConfig
 
-var injectConfig = {
+export var injectConfig = {
     inject: function injectConfig(app,html,data,object){
         this._generateTabStruct(app,html,data,object);
         const tabSize = data.tab?.width ?? 100;
