@@ -27,7 +27,7 @@ export var injectConfig = {
                 case "text":
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
-                            <input type="text" name="${flag}" value="${flagValue}" placeholder="${v.placeholder || ""}">${notes}
+                            <input type="text" name="${flag}" ${elemData.dType ? `data-dtype="${elemData.dType}"` : ""} value="${flagValue}" placeholder="${v.placeholder || ""}">${notes}
                     </div>`;
                     break;
                 case "number":
@@ -45,9 +45,9 @@ export var injectConfig = {
                 case "select":
                     injectHtml += `<div class="form-group">
                         <label for="${k}">${v.label || ""}</label>
-                            <select name="${flag}">`;
+                            <select name="${flag}" ${elemData.dType ? `data-dtype="${elemData.dType}"` : ""}>`;
                     for(const [i,j] of Object.entries(v.options)){
-                        injectHtml += `<option value="${i}" ${flagValue === i ? "selected" : ""}>${j}</option>`;
+                        injectHtml += `<option value="${i}" ${flagValue == i ? "selected" : ""}>${j}</option>`;
                     }
                     injectHtml += `</select>${notes}
                     </div>`;
@@ -98,7 +98,7 @@ export var injectConfig = {
             return injectHtml;
         }
         injectPoint.after(injectHtml);
-        if(app)app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + tabSize : "auto"});
+        if(app)app?.setPosition({"height" : "auto", "width" : data.tab ? app.options.width + tabSize : null});
         return injectHtml;
 
         function createTab(name,label,icon){
